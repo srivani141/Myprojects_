@@ -1,23 +1,17 @@
- function validateForm() {
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("password").value;
+document.addEventListener('DOMContentLoaded', function () {
+  let cartCount = 0;
 
-    // Simple email format validation
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert("Please enter a valid email address.");
-        return;
-    }
+  const addToCartButton = document.getElementById('addToCart');
+  const viewCartButton = document.getElementById('viewCart');
+  const cartCountElement = document.getElementById('cartCount');
 
-    // Simple password strength requirement (at least 8 characters)
-    if (password.length < 8) {
-        alert("Password must be at least 8 characters long.");
-        return;
-    }
+  addToCartButton.addEventListener('click', function () {
+    cartCount++;
+    cartCountElement.innerText = cartCount;
+  });
 
-    // If all validations pass, you can proceed to submit the form to the server
-    alert("Registration successful!");
-    // Here, you would typically submit the form data to the server using AJAX or form submission.
-}
+  viewCartButton.addEventListener('click', function () {
+    alert('View Cart clicked. Implement your cart functionality here.');
+    // Add logic to display the cart items and total price
+  });
+});
